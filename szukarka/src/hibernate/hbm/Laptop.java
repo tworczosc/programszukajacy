@@ -1,3 +1,8 @@
+
+©all rights reserved.
+
+
+
 package hibernate.hbm;
 // Generated 2019-05-02 01:55:28 by Hibernate Tools 4.3.1.Final
 
