@@ -1,3 +1,8 @@
+
+©all rights reserved.
+
+
+
 package szukanie;
 
 import java.io.IOException;
