@@ -1,0 +1,103 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
+		  xmlns:tx="http://www.springframework.org/schema/tx"
+		      xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+		  		      xmlns:faces="http://www.springframework.org/schema/faces" xmlns:aop="http://www.springframework.org/schema/aop"
+	            xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+				   http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/webflow-config
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd 
+           http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/faces
+		http://www.springframework.org/schema/faces/spring-faces.xsd"   
+	
+
+    	> 
+    
+<bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       
+                <property name="prefix" value="/" />
+        <property name="suffix" value=".xhtml" />
+     
+</bean>
+    	
+    	<mvc:annotation-driven />
+
+	
+	       
+<context:annotation-config />
+ 
+
+	</bean><bean id="listalap" class="zamowienia.Listalap" init-method="init" scope="session">   <aop:scoped-proxy />  
+	 <property name="sessionFactory" ref="sessionFactory" />
+	
+	</bean>
+	<bean id="metszukanielap" class="szukanie.Metszukanielap"  scope="session">   <aop:scoped-proxy />  
+	 <property name="sessionFactory" ref="sessionFactory" />
+	
+	</bean>
+	<bean id="szukajlap" class="szukanie.Szukajlap"  scope="session">   <aop:scoped-proxy />  
+	</bean><bean id="Szukselectitem" class="szukanie.Szukselectitem" scope="session">   <aop:scoped-proxy />  
+	</bean>
+	
+	
+	
+	    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" >
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=alicja"/>
+        <property name="username" value="aaa	"/>
+        <property name="password" value="123"/>
+       
+    </bean>
+
+	       
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                        <value>hibernate/hbm/Laptop.hbm.xml</value>
+                          <value>hibernate/hbm/Dostawa.hbm.xml</value>
+                          <value>hibernate/hbm/Klient.hbm.xml</value>
+              
+                          <value>hibernate/hbm/Fotaprzednia.hbm.xml</value>    
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+              dialect= org.hibernate.dialect.SQLServerDialect
+              hibernate.show_sql=true
+         
+              hibernate.generate_statistics=true
+   
+    
+        hibernate.use_sql_comments=true
+            </value>
+        </property>
+    </bean>
+
+	  
+	      <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+	  <bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <property name="sessionFactory" ref="sessionFactory"/>
+     </bean>
+     
+     
+   
+</beans>
+
+
+
+
+
+
+
+

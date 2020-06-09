@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2" />
+	
+</h:head>
+<h:body
+	style="height: 900px; width: 992px; background-color: #6291E8; font-family: Comic Sans 
+
+MS;margin:auto">
+	<f:view>
+		<h:form >
+
+
+<h:panelGrid width="943px" >
+			
+				<h:outputLabel value="Szukaj:" style="" />
+					<h:inputText
+						style="margin-right: 9%;position: relative; margin-bottom: 4px; "
+						size="42" styleClass="in" value="#{szukajlap.szukajl}"
+						id="inputszuk">
+						<f:ajax listener="#{szukajlap.szukajuruchomienie}" event="mouseover"
+							render="szukanylap listalaptopa" execute="inputszuk"></f:ajax>
+						<f:ajax listener="#{szukajlap.szukajuruchomienie}" event="keyup"
+							render="szukanylap listalaptopa" execute="inputszuk"></f:ajax>
+					</h:inputText>
+		
+				
+			</h:panelGrid>
+		<h:panelGrid id="szukanylap" cellspacing="0px"
+					  cellpadding="0px"
+					 >
+					<h:dataTable width="399px"
+						style="border-collapse: collapse; border-top-color: #f9f9f9"
+						var="item" value="#{metszukanielap.szukl}"
+						styleClass="dropdown-content" rendered="#{szukajlap.rendszuk}">
+
+
+						<h:column>
+							<h:panelGrid id="laprecord"
+								style="display: inline-block;border-collapse: collapse;
+  
+  background-color: #f9f9f9;   position: relative; "
+								width="690px" columns="2">
+
+								<h:outputText value="#{item.lapnazw}" escape="false"
+									style="color: LightGreen">
+								</h:outputText>
+								<h:outputFormat value="#{item.lapklaw}" escape="false">
+								</h:outputFormat>
+
+
+
+								<f:ajax event="click"
+									listener="#{szukajlap.outcomeszukany(item.lapiden)}"
+									execute="laprecord"></f:ajax>
+							</h:panelGrid>
+
+
+
+
+						</h:column>
+
+					</h:dataTable>
+
+
+
+				</h:panelGrid>
+		
+	
+		</h:form>
+	</f:view>
+
+
+
+</h:body>
+</html>

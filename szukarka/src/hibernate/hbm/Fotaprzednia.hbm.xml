@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-05-02 01:55:31 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="hibernate.hbm.Fotaprzednia" table="Fotaprzednia" schema="dbo" catalog="natalia" optimistic-lock="version">
+        <id name="idFotaprzed" type="int">
+            <column name="id_fotaprzed" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="laptop" class="hibernate.hbm.Laptop" fetch="select">
+            <column name="id_laptop" />
+        </many-to-one>
+        <property name="nazwa" type="string">
+            <column name="nazwa" length="50" />
+        </property>
+        <property name="wartosci" type="binary">
+            <column name="wartosci" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-05-02 01:55:31 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="hibernate.hbm.Laptop" table="Laptop" schema="dbo" catalog="natalia" optimistic-lock="version">
+     <cache usage="read-write" />    <id name="idLaptop" type="int">
+            <column name="id_laptop" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="grafika" class="hibernate.hbm.Grafika" fetch="select">
+            <column name="id_graf" />
+        </many-to-one>
+        <many-to-one name="klient" class="hibernate.hbm.Klient" fetch="select">
+            <column name="id_klient" />
+        </many-to-one>
+        <many-to-one name="procesorChipset" class="hibernate.hbm.ProcesorChipset" fetch="select">
+            <column name="id_proc" />
+        </many-to-one>
+        <many-to-one name="sieci" class="hibernate.hbm.Sieci" fetch="select">
+            <column name="id_sieci" />
+        </many-to-one>
+        <property name="nazwaLaptopa" type="string">
+            <column name="nazwa_laptopa" length="50" />
+        </property>
+        <property name="nazwaModelu" type="string">
+            <column name="nazwa_modelu" length="50" />
+        </property>
+        <property name="nrCzesci" type="string">
+            <column name="nr_czesci" length="50" />
+        </property>
+        <property name="plytaGlowna" type="string">
+            <column name="plyta_glowna" length="50" />
+        </property>
+        <property name="pamiecRam" type="string">
+            <column name="pamiec_ram" length="350" />
+        </property>
+        <property name="szybkoscPamieci" type="string">
+            <column name="szybkosc_pamieci" length="20" />
+        </property>
+        <property name="czestotliwoscTaktowaniaRam" type="string">
+            <column name="czestotliwosc_taktowania_ram" length="20" />
+        </property>
+        <property name="maksymalnaPamiec" type="string">
+            <column name="maksymalna_pamiec" length="20" />
+        </property>
+        <property name="liczbaSlotowPam" type="string">
+            <column name="liczba_slotow_pam" length="20" />
+        </property>
+        <property name="czytnikKart" type="string">
+            <column name="czytnik_kart" length="50" />
+        </property>
+        <property name="obslugiwanaKarta" type="string">
+            <column name="obslugiwana_karta" length="150" />
+        </property>
+        <property name="nosnikDanych" type="string">
+            <column name="nosnik_danych" length="50" />
+        </property>
+        <property name="dostepDysku" type="string">
+            <column name="dostep_dysku" length="20" />
+        </property>
+        <property name="szybkoscNosnika" type="string">
+            <column name="szybkosc_nosnika" length="20" />
+        </property>
+        <property name="formatyCd" type="string">
+            <column name="formaty_cd" length="790" />
+        </property>
+        <property name="naped" type="string">
+            <column name="naped" length="50" />
+        </property>
+        <property name="szybkoscCd" type="string">
+            <column name="szybkosc_cd" length="890" />
+        </property>
+        <property name="przekatnaEkranu" type="string">
+            <column name="przekatna_ekranu" length="20" />
+        </property>
+        <property name="systemKomputerowy" type="string">
+            <column name="system_komputerowy" length="50" />
+        </property>
+        <property name="architekturaSystemu" type="string">
+            <column name="architektura_systemu" length="20" />
+        </property>
+        <property name="klawiatura" type="string">
+            <column name="klawiatura" length="50" />
+        </property>
+        <property name="iloscZnakow" type="string">
+            <column name="ilosc_znakow" length="30" />
+        </property>
+        <property name="urzadzenieWskazuj" type="string">
+            <column name="urzadzenie_wskazuj" length="250" />
+        </property>
+        <property name="liczbaUsb2" type="string">
+            <column name="liczba_usb2" length="50" />
+        </property>
+        <property name="liczbaUsb3" type="string">
+            <column name="liczba_usb3" length="50" />
+        </property>
+        <property name="wyjSluchawkowe" type="string">
+            <column name="wyj_sluchawkowe" length="20" />
+        </property>
+        <property name="wejMikrofonowe" type="string">
+            <column name="wej_mikrofonowe" length="20" />
+        </property>
+        <property name="hdmi" type="string">
+            <column name="HDMI" length="30" />
+        </property>
+        <property name="vga" type="string">
+            <column name="VGA" length="30" />
+        </property>
+        <property name="portSieciowy" type="string">
+            <column name="port_sieciowy" length="50" />
+        </property>
+        <property name="inneSloty" type="string">
+            <column name="inne_sloty" length="50" />
+        </property>
+        <property name="wysSzerGleb" type="string">
+            <column name="wys_szer_gleb" length="20" />
+        </property>
+        <property name="masa" type="string">
+            <column name="masa" length="20" />
+        </property>
+        <property name="budowaBaterii" type="string">
+            <column name="budowa_baterii" length="30" />
+        </property>
+        <property name="najwCzasPracy" type="string">
+            <column name="najw_czas_pracy" length="20" />
+        </property>
+        <property name="iloscOgniw" type="string">
+            <column name="ilosc_ogniw" length="20" />
+        </property>
+        <property name="pojBaterii" type="string">
+            <column name="poj_baterii" length="20" />
+        </property>
+        <property name="glosniki" type="string">
+            <column name="glosniki" length="50" />
+        </property>
+        <property name="mikrofon" type="string">
+            <column name="mikrofon" length="50" />
+        </property>
+        <property name="kamera" type="string">
+            <column name="kamera" length="50" />
+        </property>
+        <property name="czytnikBio" type="string">
+            <column name="czytnik_bio" length="50" />
+        </property>
+        <property name="kompletZaw" type="string">
+            <column name="komplet_zaw" length="300" />
+        </property>
+        <property name="gwarancja" type="string">
+            <column name="gwarancja" length="50" />
+        </property>
+        <property name="oprogramowanie" type="string">
+            <column name="oprogramowanie" length="1950" />
+        </property>
+        <property name="cena" type="big_decimal">
+            <column name="cena" precision="10" scale="4" />
+        </property>
+        <property name="fotka" type="string">
+            <column name="fotka" length="50" />
+        </property>
+        <set name="foties" table="Foty" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_laptop" />
+            </key>
+            <one-to-many class="hibernate.hbm.Foty" />
+        </set>
+        <set name="fotaprzednias" table="Fotaprzednia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_laptop" />
+            </key>
+            <one-to-many class="hibernate.hbm.Fotaprzednia" />
+        </set>
+        <set name="zamowienies" table="Zamowienie" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_laptop" />
+            </key>
+            <one-to-many class="hibernate.hbm.Zamowienie" />
+        </set>
+    </class>
+</hibernate-mapping>
